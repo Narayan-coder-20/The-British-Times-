@@ -1,0 +1,144 @@
+# Creating the folder structure and files for "The British Times" website
+
+import os
+
+from zipfile import ZipFile
+
+
+
+# Directory and file setup
+
+base_path = "/mnt/data/The_British_Times"
+
+os.makedirs(f"{base_path}/images", exist_ok=True)
+
+
+
+# HTML content for index.html
+
+index_html = """
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>The British Times</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <header>
+
+        <h1>The British Times</h1>
+
+        <p>Your trusted source for UK and global news.</p>
+
+        <nav>
+
+            <ul>
+
+                <li><a href="#uk-news">UK News</a></li>
+
+                <li><a href="#world-news">World News</a></li>
+
+                <li><a href="#business">Business</a></li>
+
+                <li><a href="#sports">Sports</a></li>
+
+                <li><a href="#technology">Technology</a></li>
+
+                <li><a href="#entertainment">Entertainment</a></li>
+
+                <li><a href="#contact">Contact Us</a></li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+    <main>
+
+        <section id="uk-news">
+
+            <h2>UK News</h2>
+
+            <p>Latest headlines and updates from the United Kingdom.</p>
+
+        </section>
+
+        <section id="world-news">
+
+            <h2>World News</h2>
+
+            <p>Breaking news from around the world.</p>
+
+        </section>
+
+        <section id="business">
+
+            <h2>Business</h2>
+
+            <p>Market trends, economic news, and financial insights.</p>
+
+        </section>
+
+        <section id="sports">
+
+            <h2>Sports</h2>
+
+            <p>Top stories and scores from the world of sports.</p>
+
+        </section>
+
+        <section id="technology">
+
+            <h2>Technology</h2>
+
+            <p>Latest advancements and tech news.</p>
+
+        </section>
+
+        <section id="entertainment">
+
+            <h2>Entertainment</h2>
+
+            <p>Celebrity news, movie reviews, and more.</p>
+
+        </section>
+
+    </main>
+
+    <footer>
+
+        <p>Contact us at: <a href="mailto:info@thebritishtimes.com">info@thebritishtimes.com</a></p>
+
+        <p>&copy; 2025 The British Times. All rights reserved.</p>
+
+    </footer>
+
+</body>
+
+</html>
+
+"""
+
+    for root, dirs, files in os.walk(base_path):
+
+        for file in files:
+
+            full_path = os.path.join(root, file)
+
+            zip_file.write(full_path, os.path.relpath(full_path, base_path))
+
+
+
